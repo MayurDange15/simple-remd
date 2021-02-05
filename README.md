@@ -2,7 +2,7 @@
 
 # Umbrella Sampling Tutorial
 
-Test repository for hosting a tutorial on mybinder.org
+This repository hosts published tutorials for doing umbrella sampling with GROMACS
 
 ## Usage
 
