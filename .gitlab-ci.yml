@@ -7,13 +7,10 @@ build_binder_image:
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   services:
-    - docker:20-dind
-  services:
     - name: $CI_REGISTRY/gromacs/online-tutorials/binder-builder
       alias: docker
   script:
-    # Ensure the runner can re-use old image layers
-    # - docker pull $IMAGE_TAG
+    # Ensure the runner can re-use old image layers where available
+    - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
     - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --image-name $IMAGE_TAG .
-    - docker image ls
     - docker push $IMAGE_TAG
