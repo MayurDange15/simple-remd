@@ -14,7 +14,7 @@ build_binder_image:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
     # Build the binder image
-    - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --image-name $IMAGE_TAG .
+    - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --cache-from $IMAGE_TAG --image-name $IMAGE_TAG .
     # Ensure the docker login has not timed out
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     # Push the binder image to the registry
