@@ -1,17 +1,17 @@
 build_binder_image:
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
 #  image: docker:20
-#  services:
-#    - docker:20-dind
+  services:
+    - docker:20-dind
   stage: build
 #  only:
 #    - web
 #    - schedules
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  services:
-    - name: registry.gitlab.com/gromacs/online-tutorials/binder-builder
-      alias: docker
+#  services:
+#    - name: registry.gitlab.com/gromacs/online-tutorials/binder-builder
+#      alias: docker
   script:
 #    - apk add python3 py3-pip
 #    - pip3 install jupyter-repo2docker
