@@ -5,12 +5,10 @@ build:
     - docker:20-dind
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker run hello-world
-    - which apk
-    - which apt
-    - which yum
-    - which dpkg
-    - which python
+    - apk add python3 py3-pip
+    - pip3 install jupyter-repo2docker
+    - jupyter-repo2docker --user-id 1000 --user-name nbuser .
+    - docker image ls
     
 build_image:
   image: ubuntu:20.04
