@@ -1,5 +1,9 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fumbrella-sampling/main?filepath=tutorial.ipynb)
 
+# CI status
+
+[![pipeline status](https://gitlab.com/gromacs/online-tutorials/umbrella-sampling/badges/main/pipeline.svg)](https://gitlab.com/gromacs/online-tutorials/umbrella-sampling/-/commits/main)
+
 # Umbrella Sampling Tutorial
 
 This repository hosts published tutorials for doing umbrella sampling with GROMACS
