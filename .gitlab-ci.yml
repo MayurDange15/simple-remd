@@ -1,5 +1,6 @@
 build_binder_image:
 #  image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
+  image: docker:20
   stage: build
 #  only:
 #    - web
