@@ -1,30 +1,14 @@
-build:
+build_image:
   image: docker:20
   stage: build
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   services:
     - docker:20-dind
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - apk add python3 py3-pip
     - pip3 install jupyter-repo2docker
-    - jupyter-repo2docker --user-id 1000 --user-name nbuser .
-    - docker image ls
-    
-build_image:
-  image: ubuntu:20.04
-  stage: build
-  variables:
-    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-    DEBIAN_FRONTEND: noninteractive
-    APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE: DontWarn
-  script:
-    - apt update && apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-    - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    - apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
-    - apt install -y python3-pip
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - pip3 install jupyter-repo2docker
-    - docker run hello-world
-    - jupyter-repo2docker --user-id 1000 --user-name nbuser .
+    - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --image-name $IMAGE_TAG .
+    - echo $IMAGE_TAG
     - docker image ls
