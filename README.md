@@ -19,6 +19,12 @@ This repository hosts published tutorials for doing umbrella sampling with GROMA
 Contributions are welcome. Please open an issue on GitHub to discuss,
 or make a pull request.
 
+## Maintaining
+
+The notebook is built into a binder automatically by GitLab CI via the `.gitlab-ci.yml` file.
+It does so using an image built automatically in GitLab CI specified by the https://gitlab.com/gromacs/online-tutorials/binder-builder repository.
+
+
 ## License
 
 See the LICENSE file.

@@ -1,10 +1,17 @@
 build_binder_image:
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
+  stage: build
+  only:
+    - web
+    - schedules
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   services:
     - docker:20-dind
   script:
+    # Ensure the runner can re-use old image layers
+    - docker pull $IMAGE_TAG
     - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --image-name $IMAGE_TAG .
     - echo $IMAGE_TAG
     - docker image ls
+    - docker push $IMAGE_TAG
