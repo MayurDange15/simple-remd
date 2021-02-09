@@ -2,8 +2,7 @@ build_binder_image:
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
   services:
     # Published by the parent of the above image
-#    - docker:20-dind
-    - docker
+    - docker:20-dind
   stage: build
 #  only:
 #    - web
