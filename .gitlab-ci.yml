@@ -13,5 +13,5 @@ build_image:
     - apt install -y python3-pip
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - pip3 install jupyter-repo2docker
-    - jupyter-repo2docker . --user-id 1000
+    - jupyter-repo2docker . --user-id 1000 --user-name nbuser
     - docker image ls
