@@ -11,6 +11,6 @@ build_binder_image:
       alias: docker
   script:
     # Ensure the runner can re-use old image layers where available
-    - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
+    # - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
     - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --image-name $IMAGE_TAG .
     - docker push $IMAGE_TAG
