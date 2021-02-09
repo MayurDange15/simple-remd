@@ -1,9 +1,9 @@
 build_binder_image:
-  image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
+#  image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
   stage: build
-  only:
-    - web
-    - schedules
+#  only:
+#    - web
+#    - schedules
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   services:
