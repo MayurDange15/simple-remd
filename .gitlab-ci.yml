@@ -4,6 +4,8 @@ workflow:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
 
 build_binder_image:
+  # Use the base image automatically built by GitLab CI from
+  # https://gitlab.com/gromacs/online-tutorials/binder-builder repository.
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
   services:
     # Published by the parent of the above image
@@ -13,12 +15,12 @@ build_binder_image:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
     LATEST_TAG: $CI_REGISTRY_IMAGE:latest
   script:
-    # Ensure the runner can re-use old image layers where available
+    # Ensure repo2docker can re-use old image layers where available
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
     # Build the new binder image, using layers from the old image
     - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --cache-from $IMAGE_TAG --image-name $IMAGE_TAG .
-    # Ensure the docker login has not timed out
+    # Ensure the docker login has not timed out during the build
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     # Push the binder image to the registry
     - docker push $IMAGE_TAG
