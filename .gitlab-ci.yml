@@ -1,12 +1,14 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+
 build_binder_image:
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
   services:
     # Published by the parent of the above image
     - docker:20-dind
   stage: build
-#  only:
-#    - web
-#    - schedules
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   script:
@@ -14,7 +16,7 @@ build_binder_image:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $IMAGE_TAG > /dev/null && echo "Pulled old image" || echo "No old image to pull"
     # Build the new binder image, using layers from the old image
-    - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --cache-from $IMAGE_TAG --image-name $IMAGE_TAG --config environment.yml .
+    - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --cache-from $IMAGE_TAG --image-name $IMAGE_TAG .
     # Ensure the docker login has not timed out
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     # Push the binder image to the registry
