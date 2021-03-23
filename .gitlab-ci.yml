@@ -7,7 +7,7 @@ stages:
   - build
   - deploy
 
-build_binder_image:
+binder_build:
   # Use the base image automatically built by GitLab CI from
   # https://gitlab.com/gromacs/online-tutorials/binder-builder repository.
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder
@@ -27,10 +27,10 @@ build_binder_image:
     - jupyter-repo2docker --user-id 1000 --user-name nbuser --no-run --cache-from $IMAGE_TAG --image-name $IMAGE_TAG .
     # Ensure the docker login has not timed out during the build
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    # Push the binder image to the registry
+    # Push the binder image to the registry so it can be re-used
     - docker push $IMAGE_TAG
 
-publish_binder_image:
+publish:
   # Use the base image automatically built by GitLab CI from
   # https://gitlab.com/gromacs/online-tutorials/binder-builder repository.
   image: registry.gitlab.com/gromacs/online-tutorials/binder-builder

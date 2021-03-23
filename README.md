@@ -15,17 +15,31 @@ This repository hosts published tutorials for doing umbrella sampling with GROMA
    be provisioned.
 2. Enjoy learning with the tutorial!
 
+If you want to use the Jupyter notebook outside of a binder, see the usage instructions found at https://gitlab.com/gromacs/online-tutorials/website.
+
 ## Contributing
 
-Contributions are welcome. Please open an issue on GitHub to discuss,
-or make a pull request.
+Contributions are welcome.
+Please open an issue on GitHub to discuss, or make a pull request.
 
-## For maintainers
+## Making and testing changes
 
+Changes are made via GitLab branches from which merge requests are made to the main branch.
+Review of the work in progress is integral, and [GitLab CI][ci] builds binder images corresponding to the branch.
+These can be accessed from the GitLab Container Registry for this project at https://gitlab.com/gromacs/online-tutorials/umbrella-sampling/container_registry/1697718.
+Alternatively, follow the links from the `README.md` file for the branch.
+Once reviewed, the changes in the merge request are submitted and the updated binder images built.
+
+![Workflow for updating the website](images/development workflow.png)
+
+## Project structure
+
+The tutorial content is maintained as a Jupyter notebook running Python.
+Its Python dependencies are expressed in the `environment.yml` file.
 We want the notebook to run by itself and also as a binder.
 
 When run by itself, the `environment.yml` file is enough to build a conda environment that can run it.
-Instructions for that are provided by the webpages built from https://gitlab.com/gromacs/online-tutorials/website.
+Instructions for users to do that are provided by the webpages built from https://gitlab.com/gromacs/online-tutorials/website.
 
 When run as a binder, both we and [mybinder.org] use [repo2docker] to convert the contents of a repository checkout to a container.
 We support the default mode for [mybinder.org], which is to build the container upon startup following the `environment.yml` file found in the default branch.
