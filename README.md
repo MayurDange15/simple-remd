@@ -20,7 +20,7 @@ If you want to use the Jupyter notebook outside of a binder, see the usage instr
 ## Contributing
 
 Contributions are welcome.
-Please open an issue on GitHub to discuss, or make a pull request.
+Please open an issue on GitLab to discuss, or make a pull request.
 
 ## Making and testing changes
 
