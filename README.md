@@ -1,5 +1,5 @@
-Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fumbrella-sampling/binder-cache?filepath=tutorial.ipynb)
-Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fumbrella-sampling/main?filepath=tutorial.ipynb)
+Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2FTUTORIAL_NAME/binder-cache?filepath=tutorial.ipynb)
+Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2FTUTORIAL_NAME/main?filepath=tutorial.ipynb)
 
 # CI status
 
