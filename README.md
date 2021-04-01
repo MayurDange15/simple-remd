@@ -3,11 +3,11 @@ Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinde
 
 # CI status
 
-[![pipeline status](https://gitlab.com/gromacs/online-tutorials/umbrella-sampling/badges/main/pipeline.svg)](https://gitlab.com/gromacs/online-tutorials/umbrella-sampling/-/commits/main)
+[![pipeline status](https://gitlab.com/gromacs/online-tutorials/TUTORIAL_NAME/badges/main/pipeline.svg)](https://gitlab.com/gromacs/online-tutorials/TUTORIAL_NAME/-/commits/main)
 
-# Umbrella Sampling Tutorial
+# TUTORIAL TITLE
 
-This repository hosts published tutorials for doing umbrella sampling with GROMACS
+SHORT TUTORIAL DESCRIPTION
 
 ## Usage
 
