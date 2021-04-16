@@ -32,6 +32,12 @@ Once reviewed, the changes in the merge request are submitted and the updated bi
 
 ![Workflow for updating the website](images/development workflow.png)
 
+Because this workflow uses Docker, we need to ensure that the GitLab Runner that runs it enables Docker support.
+That is available in the general-usage shared GitLab Runner supplied by GitLab, but is not available in
+the GitLab Runner supplied by the tcblab Kubernetes cluster to the top-level gromacs group.
+So if CI pipelines fail because Docker is unavailable, go to Settings -> CI/CD -> Runners and make sure
+that shared runners are enabled and group runners are disabled.
+
 ## Project structure
 
 The tutorial content is maintained as a Jupyter notebook running Python.
