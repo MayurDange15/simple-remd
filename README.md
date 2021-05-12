@@ -1,13 +1,14 @@
-Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/binder-cache?filepath=tutorial.ipynb)
+
+[comment]: # Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/binder-cache?filepath=tutorial.ipynb)
 Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/main?filepath=tutorial.ipynb)
 
 # CI status
 
 [![pipeline status](https://gitlab.com/gromacs/online-tutorials/simple-remd/badges/main/pipeline.svg)](https://gitlab.com/gromacs/online-tutorials/simple-remd/-/commits/main)
 
-# TUTORIAL TITLE
+# Simple REMD tutorial
 
-Simple REMD tutorial of alanine dipeptide in water.
+Use alanine dipeptide in water to illustrate how to set up and use REMD
 
 ## Usage
 
