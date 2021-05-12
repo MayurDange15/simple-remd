@@ -1,5 +1,3 @@
-
-[comment]: # Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/binder-cache?filepath=tutorial.ipynb)
 Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/main?filepath=tutorial.ipynb)
 
 # CI status
@@ -63,6 +61,10 @@ This provides the same content, but starts the binder faster.
 ## License
 
 See the LICENSE file.
+
+## Scratch area
+
+Fast-loading cached binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/binder-cache?filepath=tutorial.ipynb)
 
 [repo2docker]: https://repo2docker.readthedocs.io/en/latest/
 [mybinder.org]: https://mybinder.org/
