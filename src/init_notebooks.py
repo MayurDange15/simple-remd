@@ -61,22 +61,26 @@ def get_notebook_name():
                 return os.path.join(ss['notebook_dir'], relative_path)
 
 def check_notebook():
-		import hashlib
-		notebook_name = get_notebook_name()
+    if os.getenv('JUPYTERHUB_API_TOKEN') is None:
+        import hashlib
+        notebook_name = get_notebook_name()
 		
-		# read in reference checksum
-		nbpathhead, nbname = os.path.split(notebook_name)
-		results = open(nbpathhead + '/src/.check/' + nbname + '.md5','r').read()
-		checksum_reference = str(results.split()[0])
+        # read in reference checksum
+        nbpathhead, nbname = os.path.split(notebook_name)
+        results = open(nbpathhead + '/src/.check/' + nbname + '.md5','r').read()
+        checksum_reference = str(results.split()[0])
 
-		# evaluate currrent checksum
-		checksum_current = hashlib.md5(open(notebook_name,'rb').read()).hexdigest()
+        # evaluate currrent checksum
+        checksum_current = hashlib.md5(open(notebook_name,'rb').read()).hexdigest()
 
-		#report
-		if checksum_current == checksum_reference:
-			print("Notebook is unchanged from source")
-		else:
-			print("Notebook has been modified")
+        #report
+        if checksum_current == checksum_reference:
+            print("Notebook is unchanged from source")
+        else:
+            print("Notebook has been modified")
+    else:
+        print("Notebook is running on JupyterHub so there's no need to check it for changes")
+
 
 ##Basic multiple-choice widget from https://levelup.gitconnected.com/deploy-simple-and-instant-online-quizzes-with-jupyter-notebook-tools-5e10f37da531
 
