@@ -1,4 +1,4 @@
-Default binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/main?filepath=tutorial.ipynb)
+Default binder: <!--[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/gromacs%2Fonline-tutorials%2Fsimple-remd/main?filepath=tutorial.ipynb)-->
 
 # CI status
 
