@@ -5,7 +5,7 @@ channels:
   - defaults
 dependencies:
   - gromacs=2021
-  - gromacs_mpi=2021
+  #- gromacs_mpi=2021
   - matplotlib
   - nglview
   - notebook
@@ -14,3 +14,5 @@ dependencies:
   - pandas
   - seaborn
   - openmpi
+  - compilers
+  - cmake
